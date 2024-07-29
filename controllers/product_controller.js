@@ -1,7 +1,6 @@
 const Product = require("../models/Product");
 const Purchase = require("../models/Purchase");
 
-// get all products by all admin + registered users + guests
 const getAllProducts = (req, res, next) => {
     Product.find()
         .then(products => {
@@ -13,7 +12,6 @@ const getAllProducts = (req, res, next) => {
 }
 
 
-// get a single product by  all admin + registered users + guests
 const getSingleProduct = (req, res, next) => {
     const productId = req.params.product_id;
     Product.findById(productId)
@@ -25,10 +23,6 @@ const getSingleProduct = (req, res, next) => {
 
 };
 
-
-
-
-// registered users can add reviews to the products
 
 const addReview = (req, res, next) => {
 
@@ -51,8 +45,6 @@ const addReview = (req, res, next) => {
 
 };
 
-// const get all reviews by all users
-
 const getAllReviews = async (req, res, next) => {
     const productId = req.params.product_id;
 
@@ -69,7 +61,6 @@ const getAllReviews = async (req, res, next) => {
 };
 
 
-//  get a single review by all users
 const getSingleReview = async (req, res, next) => {
     const reviewId = req.params.review_id;
     const productId = req.params.product_id;
@@ -86,7 +77,6 @@ const getSingleReview = async (req, res, next) => {
     }
 };
 
-// update a single review by registered users who created the review
 const updateSingleReview = async (req, res, next) => {
     const reviewId = req.params.review_id;
     const productId = req.params.product_id;
