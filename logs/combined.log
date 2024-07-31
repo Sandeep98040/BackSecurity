@@ -1,0 +1,2 @@
+2024-08-13T18:35:35.169Z info: User: test@gmail.com, Role: admin, URL: /admin/product, Method: POST
+2024-08-13T18:36:00.776Z info: User: test@gmail.com, Role: admin, URL: /admin/product/66bba7772ab074e31f565740, Method: DELETE
