@@ -98,69 +98,7 @@ const userLogin = async (req, res, next) => {
     }
 };
  
-// for user login
-// const userLogin = ('/login', (req, res, next) => {
-//     const { email, password } = req.body;
- 
-//     if (email == '' || password == '') {
-//         return res.status(400).json({ error: 'Email or password is empty.' });
-//     }
- 
-//     // find email from the database
-//     User.findOne({ email: email })
-//         .then(user => {
-//             // if (!user) return res.status(400).json({ error: 'Provided email is not registered.' });
-//             if (!user) return res.status(400).json({ error: 'Account has not been registered.' });
- 
- 
-//             // compare given password with hashing password of db
-//             bcrypt.compare(password, user.password, (err, success) => {
-//                 if (err) {
-//                     return res.status(500).json({ error: err.message });
-//                 }
-//                 else {
-//                     // password does not match
-//                     if (!success) return res.status(400).json({ error: 'Account has not been registered.' });
- 
-//                     // check whether account is locked or not
-//                     if (user.status == 'disable') return res.status(400).json({ error: 'Account has been locked.' });
-//                     const payload = {
-//                         id: user.id,
-//                         email: user.email,
-//                         role: user.role,
-//                         fullName: user.fullName,
-//                         picture: user.picture,
-//                     };
- 
- 
-//                     jwt.sign(
-//                         payload,
-//                         process.env.SECRET,
-//                         { expiresIn: '4h' },  // expires token in 4 hours
-//                         (err, token) => {
-//                             if (err) return res.status(500).json({ error: err.message });
- 
-//                             console.log(`User id : ${user.id}`);
-//                             console.log(`User name : ${user.fullName}`);
-//                             console.log(`TOken: ${token}`);
-//                             user.save()
-//                                 .then(success => res.json({ token: token, user: payload }))
-//                                 .catch((err => {
-//                                     res.status(500).json({ error: err.message });
-//                                 }));
-//                         }
-//                     );
- 
-//                 }
- 
-//             });
- 
-//         })
-//         .catch((err => res.status(500).json({ error: err.message })));
- 
-// });
- 
-// lock account after 3 failed login attempts
+
 const userAccountLock = (req, res, next) => {
     const { email } = req.body;
  
