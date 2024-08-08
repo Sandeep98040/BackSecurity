@@ -1,7 +1,5 @@
 
-// middleware for handling multipart/form-data like images, files 
 
-// const saveDestinationPath = process.env.NODE_ENV === 'test' ? 'public/test_uploads' : 'public/uploads';
 const multer = require('multer');
 
 const uuid = require('uuid').v4;
