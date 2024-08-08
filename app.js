@@ -15,20 +15,16 @@ const { verifyAdmin, verifyUser } = require('./middlewares/auth');
 
 const app = express();
 
-// Middleware to access files
 app.use(express.static('public/'));
 
-// Middleware to decode data that come from browser and store in req.body
 app.use(express.json());
 
-// Remove CORS policy while using in browser
 app.use(cors());
 app.use(morgan('tiny'));
 app.use(helmet());
 
 const localDbUri = process.env.MONGODB_URI;
 
-// Function to connect to the database
 function connectToDatabase(uri) {
     return mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 }
